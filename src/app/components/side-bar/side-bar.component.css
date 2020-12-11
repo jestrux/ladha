@@ -1,0 +1,265 @@
+aside{
+    position: relative;
+    box-sizing: border-box;
+    min-width: 270px;
+    max-width: 270px;
+    width: 270px;
+    height: calc(100vh - 70px);
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgba(230, 230, 230, 0.98);
+}
+
+aside:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* background-color: rgba(230, 230, 230, 0.985); */
+    filter: blur(35px);
+}
+
+aside nav{
+    display: block;
+    padding: 20px 12px;
+    height: calc(100vh - 250px);
+    height: calc(100vh - 180px);
+    overflow: auto;
+    position: relative;
+    z-index: 1;
+}
+
+aside svg,
+aside i:not(.for-remover){
+    fill: #333;
+    color: #333;
+}
+
+aside .action-btn{
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    color: #000;
+    margin-left: auto;
+    margin-right: -18px;
+    z-index: 1;
+    position: relative
+}
+
+aside .action-btn:focus{
+    border-color: #aaa;
+}
+
+aside #longHeader{
+    padding: 20px;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+    -webkit-app-region: drag;
+}
+
+aside #longHeader .scrim{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: var(--app-main-color);*/
+    background: rgba(0, 0, 0, 0.3);
+}
+
+aside #longHeader h3{
+    font-size: 27px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+    margin-left: 12px;
+}
+
+aside #longHeader img{
+    width: 58px;
+    display: inline-block;
+    margin-left: 17px;
+    margin-bottom: 8px;
+}
+
+.section-item, .section-title{
+    display: flex;
+    align-items: center;
+}
+
+.section-title{
+    font-family: "Roboto Bold";
+    font-size: 14px;
+    padding: 8px 20px;
+    margin-top: 12px;
+    margin-bottom: -5px;
+    height: 40px;
+    text-transform: uppercase;
+    color: #aaa;
+    letter-spacing: 1px;
+}
+
+.section-title svg,
+.section-title i:not(.for-remover){
+    width: 20px;
+    height: 20px;
+    font-size: 18px !important;
+    fill: #aaa !important;
+    color: #aaa !important;
+}
+
+
+.section-item{
+    position: relative;
+    min-height: 48px;
+    font-size: 16px;
+    padding: 12px 20px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+
+.section-item:hover{
+    background: #e5e5e5;
+}
+
+.section-item .remover{
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto 0;
+}
+
+.section-item:not(:hover) .remover{
+    display: none
+}
+
+.section-item .remover:before{
+    content: '';
+    width: 30px;
+    height: 30px;
+    background: rgba(230, 230, 230, 1);
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+
+.section-item .remover i{
+    font-size: 12px;
+}
+
+.section-item.bold{
+    font-family: "Roboto Bold";
+}
+
+.section-item.active{
+    background: var(--app-bg-highlight);
+    border-radius: 2px;
+}
+
+.section-item svg,
+.section-item i:not(.for-remover){
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+}
+
+.light-hover:before{
+    min-width: 30%;
+    box-shadow: 0 0 55px 8px rgba(0,0,0,0.2);
+}
+
+@media all and (max-width: 1200px){
+    aside{
+        min-width: 64px;
+        width: 64px;
+    }
+
+    aside #longHeader img{
+        width: 58px;
+        display: inline-block;
+        margin: auto;
+        margin-right: 5px;
+    }
+
+    aside #longHeader{
+        align-items: center;
+        height: 120px;
+        padding: 0;
+    }
+
+    aside #longHeader h3{
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 0;
+        margin-left: 0;
+    }
+
+    .for-lg{
+        display: none;
+    }
+
+    aside nav{
+        height: calc(100vh - 120px);
+        padding: 12px 0;
+        padding-top: 20px;
+        overflow-x: hidden;
+    }
+
+    .section-item:not(.for-lg) {
+        padding: 0;
+        width: 40px;
+        margin: auto;
+    }
+
+    .section-item i:not(.for-remover){
+        margin-left: auto;
+        margin-right: auto !important;
+    }
+
+    .section-title{
+        align-items: center;
+        flex-direction: column;
+        padding: 0;
+        height: auto;
+    }
+
+    aside .action-btn{
+        margin: 0;
+        margin-top: 12px;
+    }
+
+    hr.divider{
+        margin: 12px auto;
+        width: 30px;
+    }
+
+    .section-title hr.divider{
+        margin-top: 12px;
+        margin-bottom: 10px;
+        width: 30px;
+    }
+
+    .section-item + .section-title hr.divider{
+        margin: 0 auto;
+        margin-bottom: 22px;
+    }
+}
+
+@media all and (min-width: 1200px){
+    .for-mob{
+        display: none;
+    }
+}

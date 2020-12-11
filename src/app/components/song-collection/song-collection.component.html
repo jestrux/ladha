@@ -1,0 +1,70 @@
+<div *ngIf="collection && collection != undefined" style="height: 100%">
+    <div id="topBar" class="layout end"
+        [style.backgroundImage]="bgColor | safeCss">
+        <div class="image">
+            <img [src]="collection.artwork.url | safeHtml" alt=""
+                *ngIf="collection.artwork">
+
+            <i class="mi mi-MusicAlbum" style="z-index: 1;background: #eee;font-size: 70px;padding: 0.5em;"
+                *ngIf="!collection.artwork && collection.type != 'playlist'"></i>
+
+            <i *ngIf="!collection.artwork && collection.type === 'playlist'"
+              class="mi"
+              [ngClass]="{'mi-FavoriteList': collection.title == 'favorites', 'mi-Library' : collection.title != 'favorites'}"
+              style="z-index: 1;background: #eee;font-size: 70px;padding: 0.5em;"></i>
+        </div>
+
+        <div>
+            <h1>{{collection.title || "Unknown Collection"}}</h1>
+            <p class="layout center">
+                <span *ngIf="collection.artist">
+                    Artist: {{collection.artist}}
+                </span>
+                <span *ngIf="collection.type == 'nowplaying'">
+                    Album: {{collection.album}}
+                </span>
+                <span *ngIf="collection.year">
+                    Release: {{collection.year}}
+                </span>
+                <span *ngIf="collection.songs && collection.type != 'nowplaying'">
+                    {{collection.songs.length}} song<span *ngIf="collection.songs.length > 1">s</span>
+                </span>
+
+                <button *ngIf="collection.songs && collection.songs.length && collection.type !== 'nowplaying'"
+                  (click)="playAll()">PLAY ALL</button>
+            </p>
+        </div>
+    </div>
+    <div id="songs" style="background: #fff; padding: 12px 30px; height: calc(100% - 320px); overflow: auto">
+        <div *ngIf="!collection.songs || !collection.songs.length" style="text-transform: capitalize; padding: 0.5em; min-height: 65px;" class="layout center-center">
+            {{ collection.title }} has no songs.
+        </div>
+        <div style="padding: 0.5em; min-height: 65px;" class="layout center justified"
+            *ngFor="let song of collection.songs; let i = index"
+            (click)="songClicked(song)">
+            <span style="min-width: 50px;">
+                <i *ngIf="song && song.path == curPath" class="mi mi-FourBars"></i>
+                <i *ngIf="song && song.path !== curPath">{{(i + 1)}}.</i>
+            </span>
+
+            <span style="width: 30%">
+                {{song.title || "Unknown song"}}
+            </span>
+
+            <span class="flex" style="text-align: center" *ngIf="collection.type === 'album' || collection.type === 'playlist'">
+                {{song.artist || "Unknown artist"}}
+            </span>
+
+            <span class="flex" style="text-align: center" *ngIf="collection.type === 'artist' || collection.type === 'playlist'">
+                {{song.album || "Unknown album"}}
+            </span>
+
+            <span class="flex" style="text-align: center">
+                {{song.genre || "Unknown Genre"}}
+            </span>
+            <span style="padding: 0 0.5em">
+                {{song.duration_str || "--:--"}}
+            </span>
+        </div>
+    </div>
+</div>

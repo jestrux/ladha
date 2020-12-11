@@ -1,0 +1,30 @@
+#titleBar{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;height: 35px;
+    z-index: 10;
+    overflow: visible;
+}
+
+#titleBar > *:not(.no-drag){
+  -webkit-app-region: drag
+}
+
+#titleBar #page-title{
+    padding: 20px;
+    height: 100%;
+}
+
+#titleBar #page-title span::first-letter{
+    text-transform: uppercase;
+}
+
+#titleBar #actionButtons .action-btn{
+    border: none !important;
+}
+#titleBar #actionButtons .action-btn:last-child:hover,
+#titleBar #actionButtons .action-btn:last-child:focus{
+    background-color: #f00;
+    color: #fff;
+}

@@ -1,0 +1,18 @@
+<div id="artists" class="no-drag grid" *ngIf="!artist.title">
+    <div class="grid-item layout vertical start-justified"
+        *ngFor="let artist of artists"
+        (click)="artistClicked(artist)">
+        <div class="image layout center-justified">
+            <img [src]="artist.image.url | safeHtml" alt=""
+                *ngIf="artist.image &amp;&amp; artist.image != null &amp;&amp; artist.image != undefined  &amp;&amp; artist.image != 'undefined'">
+
+             <i class="mi mi-Contact"
+                *ngIf="!artist.image || artist.image == null || artist.image == undefined  || !artist.image == 'undefined'"></i>
+        </div>
+        <span class="title">
+            {{artist.name || "Uknown Artist"}}
+        </span>
+    </div>
+</div>
+
+<song-collection [collection]="artist" *ngIf="artist.title"></song-collection>

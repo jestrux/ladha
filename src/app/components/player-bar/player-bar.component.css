@@ -1,0 +1,136 @@
+#playerBarWrapper{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    transition: all 0.35s ease-out;
+}
+
+i{
+    color: #fff !important;
+}
+
+#playerBarWrapper:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+#curSong, #controls, #volume{
+    position: relative;
+    height: 100%;
+    z-index: 1;
+}
+
+#curSong{
+    position: relative;
+    width: 20%;
+    min-width: 220px;
+    padding: 0 12px;
+}
+
+#curSong .image{
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    flex-shrink: 0;
+    margin-right: 8px;
+    overflow: hidden;
+}
+
+#curSong .image img{
+    width: 100%;
+}
+
+#curSong .title{
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    max-width: 140px;
+    display: block;
+    height: 20px;
+    font-size: 16px;
+}
+
+#curSong .artist{
+    font-size: 14px;
+}
+
+#timeBar{
+    position: relative;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+#timeBar:before,
+#timeBar:after{
+    content:"";
+    position: relative;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    height: 30px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#timeBar .progress{
+    max-width: 100%;
+}
+
+#timeBar .current,
+#timeBar .duration{
+    font-size: 16px;
+    min-height: 60px;
+    line-height: 60px;
+    text-align: center;
+    min-width: 60px;
+    text-align: center;
+    margin: 0 8px;
+}
+
+#controls{
+    padding: 0 20px;
+}
+
+#controls button,
+#volume button{
+    width: 40px;
+    height: 40px;
+    margin: 0 8px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+}
+
+#controls button.active{
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#controls button:hover{
+    opacity: 0.3;
+    transition: opacity 0.15s ease-out;
+}
+
+#volume{
+    padding-right: 12px;
+}
+
+#volume i{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-right: 8px;
+    font-size: 20px;
+}

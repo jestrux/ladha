@@ -1,0 +1,63 @@
+.grid{
+    align-self: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 1.5em;
+    display: grid;
+    grid-gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    grid-auto-rows: minmax(226.1px, auto);
+}
+
+@media all and (max-width: 1200px){
+    .grid{
+        max-width: calc(100% - 12px);
+    }
+}
+
+.grid-item{
+    /* max-width: 190px;
+    flex-shrink: 0;
+    padding: 0 6px;
+    margin-bottom: 12px; */
+    position: relative;
+}
+
+.grid-item .image{
+    /* height: 170px; */
+    width: 100%;
+    margin-bottom: 12px;
+    background: #e4e4e4;
+    overflow: hidden;
+    transition: all 0.15s ease-out;
+}
+
+.grid-item .image:hover{
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.grid-item img{
+    border: none !important;
+    width: inherit;
+}
+
+.grid-item .title{
+    font-family: "Roboto";
+    font-size: 15px;
+    margin-bottom: 1px;
+}
+
+.grid-item .subtitle{
+    font-family: "Roboto Light";
+    font-size: 13px;
+}
+
+.grid-item .title,
+.grid-item .subtitle{
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

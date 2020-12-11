@@ -1,0 +1,69 @@
+<div id="playerBarWrapper" class="no-drag layout center"
+    [style.backgroundColor]="bgColor | safeCss" *ngIf="!expanded">
+    <div class="scrim"></div>
+    <div id="curSong" class="layout center"
+        (click)="playlistClicked()">
+        <div class="image layout center-center">
+            <img [src]="song.artwork.url | safeHtml" alt=""
+                *ngIf="song.artwork &amp;&amp; song.artwork != null &amp;&amp; song.artwork != undefined  &amp;&amp; song.artwork != 'undefined'">
+
+            <i class="mi mi-MusicAlbum" style="font-size: 40px;"
+                *ngIf="!song.artwork || song.artwork == null || song.artwork == undefined  || !song.artwork == 'undefined'"></i>
+        </div>
+        <div class="text" *ngIf="song">
+            <span class="title">
+                {{song.title || 'Unknown Song'}}
+            </span>
+            <span class="artist">
+                {{song.artist || 'Unknown Artist'}}
+            </span>
+        </div>
+    </div>
+    <div id="timeBar" class="flex layout center">
+        <span class="current">
+            {{formattedTime(timeIn)}}
+        </span>
+        <input type="range" min="0" max="100" [value]="progress" class="progress flex"/>
+        <span class="duration">
+            {{formattedTime(duration)}}
+        </span>
+    </div>
+    <div id="controls" class="layout center">
+        <button *ngIf="song" (click)="favClicked()">
+            <i class="mi"
+              [ngClass]="{'mi-FavoriteLegacy': faved, 'mi-FavoriteStar': !faved}"></i>
+        </button>
+        <button [class.active]="shuffled" *ngIf="song" (click)="shuffleClicked()">
+            <i class="mi mi-Shuffle"></i>
+        </button>
+        <button (click)="prevClicked()">
+            <i class="mi mi-Previous"></i>
+        </button>
+        <button *ngIf="!playing" (click)="playClicked()">
+            <i class="mi mi-Play"></i>
+        </button>
+        <button *ngIf="playing" (click)="pauseClicked()">
+            <i class="mi mi-Pause"></i>
+        </button>
+        <button (click)="nextClicked()">
+            <i class="mi mi-Next"></i>
+        </button>
+        <button (click)="repeatClicked()" [ngClass]="{'active': repeat !== 0}">
+            <i class="mi"
+              [ngClass]="{'mi-Refresh': repeat !== 2, 'mi-RepeatOne': repeat === 2}"></i>
+        </button>
+    </div>
+    <div id="volume" class="layout center">
+        <button (click)="muteClicked()">
+              <i class="mi mi-Mute" *ngIf="muted"></i>
+              <i class="mi mi-Volume0" *ngIf="!muted && volume == 0"></i>
+              <i class="mi mi-Volume1" *ngIf="!muted && volume > 0 && volume < 3"></i>
+              <i class="mi mi-Volume2" *ngIf="!muted && volume > 3 && volume < 5"></i>
+              <i class="mi mi-Volume" *ngIf="!muted && volume >= 5"></i>
+        </button>
+
+        <input type="range" min="0" max="10" [value]="volume" class="progress flex"/>
+    </div>
+</div>
+
+<song-collection [collection]="playlist" *ngIf="expanded"></song-collection>

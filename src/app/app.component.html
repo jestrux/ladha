@@ -1,0 +1,41 @@
+<div id="appWrapper" [class.loaded]="loaded">
+	<side-bar
+		class="no-drag"
+		[curPage]="currentPage"></side-bar>
+		<!-- (onSongChanged)="songChanged($event)" -->
+
+	<main [class.playing]="song != null">
+		<title-bar
+			[hasBack]="hasBack"
+			maximized="{{!maximized}}"
+			header="{{currentPage}}"
+			[noHeader]="expandedPlayer"
+			(onAction)="onAppAction($event)"></title-bar>
+
+		<div id="mainPage" class="no-drag">
+			<router-outlet></router-outlet>
+			<!-- <song-list *ngIf="currentPage === 'songs'" [songs]="songs"></song-list> -->
+			<!-- <album-list *ngIf="currentPage === 'albums'" [albums]="albums"></album-list> -->
+			<!-- <artist-list *ngIf="currentPage === 'artists'" [artists]="artists"></artist-list> -->
+		</div>
+
+		<div class="no-music no-drag layout vertical center-center"
+		*ngIf="!songs || !songs.length">
+			<img src="assets/images/folder.png" alt="">
+			<h3>
+				Find your music
+			</h3>
+			<p>
+				Add folders where you've stored your music so it can all be sorted and organized for easier surfing.
+			</p>
+			<button (click)="addFolder()">CHOOSE FOLDER</button>
+		</div>
+
+		<player-bar [expanded]="expandedPlayer" class="no-drag"
+			[ngClass]="{'expanded': expandedPlayer}"></player-bar>
+	</main>
+</div>
+
+<div *ngIf="loading" id="loader" class="layout center-center">
+	LOADING....
+</div>

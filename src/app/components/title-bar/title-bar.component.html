@@ -1,0 +1,23 @@
+<div id="titleBar" class="layout center justified"
+  [style.backgroundColor]="background | safeCss"
+  [style.color]="color | safeCss">
+  <div id="page-title" class="no-drag layout center">
+    <button *ngIf="hasBack" class="action-btn" style="margin-right: 0.6em" (click)="actionClicked(-1)">
+      <i class="mi mi-ChromeBack"></i>
+    </button>
+    <span *ngIf="!noHeader">{{header}}</span>
+  </div>
+  <span class="flex"></span>
+  <div id="actionButtons"  class="no-drag layout center">
+    <button *ngIf="!closeOnly" class="action-btn" (click)="actionClicked(1)">
+      <i class="mi mi-ChromeMinimize"></i>
+    </button>
+    <button *ngIf="!closeOnly && !noMaximize" class="action-btn" (click)="actionClicked(2)">
+      <i class="mi mi-ChromeMaximize" *ngIf="!maximized"></i>
+      <i class="mi mi-ChromeRestore" *ngIf="maximized"></i>
+    </button>
+    <button class="action-btn" (click)="actionClicked(0)">
+      <i class="mi mi-ChromeClose"></i>
+    </button>
+  </div>
+</div>

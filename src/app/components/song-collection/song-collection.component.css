@@ -1,0 +1,80 @@
+#topBar{
+    position: relative;
+    height: 320px;
+    padding: 30px 4em;
+    padding-bottom: 0;
+    background: #ddd;
+    transition: all 0.35s ease-out;
+}
+
+#topBar:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4.1em;
+    background: #fafafa;
+    opacity: 0.4;
+}
+
+#topBar .image{
+    margin-bottom: -2px;
+}
+
+#topBar img{
+    z-index: 1;
+    min-height: 151px;
+    max-height: 180px;
+    min-width: 120px;
+    max-width: 220px;
+    background: #eee;
+}
+
+#topBar > div:not(.image){
+    width: 100%;
+}
+
+#topBar h1{
+    z-index: 1;
+    font-size: 1.8em;
+    margin: 0.8em 1em;
+    text-transform: capitalize;
+}
+
+#topBar p{
+    z-index: 1;
+    font-size: 1.2em;
+    margin: 0.8em 1em;
+    height: 2em;
+}
+
+#topBar p > span{
+    display: inline-block;
+    position: relative;
+    padding-left: 2em;
+}
+
+#topBar p > span:before{
+    content: '';
+    position: absolute;
+    left: 0.8em;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background: #000;
+}
+
+#topBar p > button{
+    border: none;
+    margin-left: auto;
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+    border-radius: 0.8em;
+    padding: 0.2em 0.83em;
+    border-radius: 1.2em;
+    padding: 0.5em 1.4em;
+}

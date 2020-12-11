@@ -1,0 +1,136 @@
+<aside>
+    <div id="longHeader" class="image-bg layout vertical end-justified">
+        <div class="scrim"></div>
+
+        <img src="assets/images/logo.png"/>
+        <h3 class="for-lg">Ladha</h3>
+    </div>
+    <nav>
+        <!-- <div class="section-item bold">
+            Discover
+        </div>
+
+        <div class="section-item bold">
+            Trending
+        </div> -->
+        <!-- <div class="section-item bold">
+            Top Charts
+        </div> -->
+
+        <div class="section-title">
+            <span class="for-lg">
+                Folders
+            </span>
+            <span class="for-mob">
+                <i class="mi mi-Folder"></i>
+            </span>
+
+            <button class="action-btn" (click)="addFolder()" title="Add folder">
+                <i class="mi mi-Add"></i>
+            </button>
+
+            <hr class="for-mob divider">
+        </div>
+
+        <div class="section-item light-hover for-lg"
+            *ngIf="folders && folders.length >= 3"
+            (click)="toggleShowFolders()">
+            {{folders.length}} folders
+        </div>
+
+        <div *ngIf="folders && folders.length < 3 || showFolders" class="for-lg">
+            <div class="section-item light-hover for-lg"
+            *ngFor="let folder of folders"
+            [title]="folder">
+                <i class="mi mi-Folder"></i>
+                {{folder}}
+
+                <button class="remover layout center-center" title="Remove folder" (click)="removeFolder(folder)">
+                    <i class="mi mi-Cancel for-remover"></i>
+                </button>
+            </div>
+        </div>
+
+        <p class="for-lg"  *ngIf="!folders || !folders.length" style="padding: 4px; padding-left: 20px; color: #777">
+            No folders found
+        </p>
+
+        <div class="section-title bold">
+            <span class="for-lg">
+                My Music
+            </span>
+        </div>
+        <a (click)="goTo('songs')" class="section-item light-hover"
+            [ngClass]="{'active': curPage === 'songs'}">
+            <i class="mi mi-MusicInfo"></i>
+            <span class="for-lg">
+                Music
+            </span>
+        </a>
+        <a (click)="goTo('albums')" class="section-item light-hover"
+            [ngClass]="{'active': curPage === 'albums'}">
+            <i class="mi mi-MusicAlbum"></i>
+            <span class="for-lg">
+                Albums
+            </span>
+        </a>
+        <a (click)="goTo('artists')" class="section-item light-hover"
+            [ngClass]="{'active': curPage === 'artists'}">
+            <i class="mi mi-Contact2"></i>
+            <span class="for-lg">
+                Artists
+            </span>
+        </a>
+
+        <div *ngIf="playlists && playlists.length">
+            <div class="section-title bold">
+                <span class="for-lg">
+                    Playlists
+                </span>
+            </div>
+            <!-- <div class="section-title">
+                <span class="for-lg">
+                    Playlists
+                </span>
+                <hr class="for-mob divider">
+                <span class="for-mob">
+                    <i class="mi mi-Library"></i>
+                </span>
+                <button *ngIf="playlists" class="action-btn"  title="Create Playlist">
+                    <i class="mi mi-Add"></i>
+                </button>
+            </div> -->
+
+            <div (click)="viewPlaylist(playlist)" *ngFor="let playlist of playlists; let i = index;"
+                class="section-item playlist-item light-hover">
+                <i class="mi"
+                  [ngClass]="{'mi-FavoriteList': i == 0, 'mi-Library' : i != 0}"></i>
+                <span class="for-lg">
+                    {{ playlist.title || 'Untitled Playlist' }}
+                </span>
+            </div>
+
+            <!-- <div class="section-item light-hover">
+                <i class="mi mi-Streaming"></i>
+                <span class="for-lg">
+                    Now Playing
+                </span>
+            </div>
+
+            <div *ngIf="playlists" class="section-item light-hover for-lg">
+                <i class="mi mi-Library"></i>
+                Recent
+            </div> -->
+        </div>
+
+        <hr class="divider" style="display:none">
+
+        <div class="section-item light-hover" style="display:none">
+            <i class="mi mi-Settings"></i>
+
+            <span class="for-lg">
+                Settings
+            </span>
+        </div>
+    </nav>
+</aside>

@@ -1,0 +1,21 @@
+<div id="albums" class="no-drag grid" *ngIf="!album.title">
+    <div class="grid-item layout vertical start-justified"
+        *ngFor="let album of albums"
+        (click)="albumClicked(album)">
+        <div class="image layout center-center" style="min-height: 231px;">
+            <img style="min-height: 231px;" [src]="album.artwork.url | safeHtml" alt=""
+                *ngIf="album.artwork">
+
+             <i class="mi mi-MusicAlbum" style="font-size: 60px;"
+                *ngIf="!album.artwork"></i>
+        </div>
+        <span class="title">
+            {{album.title || "Unknown Album"}}
+        </span>
+        <span class="subtitle">
+            {{album.artist || ""}}
+        </span>
+    </div>
+</div>
+
+<song-collection [collection]="album" *ngIf="album.title"></song-collection>

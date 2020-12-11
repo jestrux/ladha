@@ -1,0 +1,149 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto Bold";
+    src: url("../fonts/Roboto/Roboto-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Roboto Medium";
+    src: url("../fonts/Roboto/Roboto-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Roboto Light";
+    font-style: italic;
+    font-weight: normal;
+    src: url("../fonts/Roboto/Roboto-Light.ttf");
+}
+
+@font-face {
+    font-family: "Roboto Thin";
+    font-style: italic;
+    font-weight: normal;
+    src: url("../fonts/Roboto/Roboto-Thin.ttf");
+}
+
+@font-face {
+    font-family: "Segoe";
+    font-style: italic;
+    font-weight: normal;
+    src:url("../fonts/segoe-ui.ttf");
+}
+
+@font-face {
+    font-family: "Segoe Light";
+    src: url("../fonts/segoe-light.ttf");
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, main {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    font-family:'Gotham medium',"Helvetica Neue Light","Helvetica Neue",serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+    font-family: Segoe;
+}
+html,body{
+    width: 100%;
+    /*height: 100%;*/
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+* {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    outline: none !important;
+}
+
+
+/* APP SETUP */
+body{
+    background: transparent;
+    background: transparent; 
+    -webkit-user-select: none; 
+    -webkit-app-region: drag;
+    cursor: default !important;
+}
+.no-drag, .no-drag > * {
+    -webkit-app-region: no-drag;
+}
+
+#tempActionButtons{
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 35px;
+    z-index: 9;
+    overflow: visible;
+}
+
+#tempActionButtons button{
+    border: none;
+    height: 35px;
+    width: 48px;
+    font-size: 11px;
+    background-color: transparent;
+}
+
+#tempActionButtons button:hover{
+    background-color: rgba(0,0,0,0.06);
+}
+
+#tempActionButtons button:last-child:hover{
+    background-color: #f00;
+    color: #fff;
+}

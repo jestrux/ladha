@@ -1,0 +1,30 @@
+<div id="songs" class="no-drag">
+    <div *ngFor="let song of songs; let i = index;">
+        <div class="a-song layout center justified"
+        (click)="songClicked(song)">
+            <span *ngIf="song && song.path == curPath" style="min-width: 50px;">
+                <i class="mi mi-FourBars"></i>
+            </span>
+
+            <span style="width: 40%">
+                {{song.title || "Unknown song"}}
+            </span>
+
+            <span class="flex">
+                {{song.artist || "Unknown artist"}}
+            </span>
+
+            <span class="flex">
+                {{song.album || "Unknown album"}}
+            </span>
+
+            <span class="flex" style="text-align: center">
+                {{song.genre || "Unknown Genre"}}
+            </span>
+
+            <span style="padding: 0 0.5em">
+                {{song.duration_str || "00:00"}}
+            </span>
+        </div>
+    </div>
+</div>
